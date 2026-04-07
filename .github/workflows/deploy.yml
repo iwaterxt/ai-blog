@@ -23,8 +23,9 @@ jobs:
 
       - name: Setup Node.js
         run: |
-          curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
-          apt-get install -y nodejs
+          wget -qO- https://nodejs.org/dist/v20.18.0/node-v20.18.0-linux-x64.tar.gz | tar -xzC /tmp
+          mv /tmp/node-v20.18.0-linux-x64 /tmp/node
+          export PATH=/tmp/node/bin:$PATH
           node --version
           npm --version
 
